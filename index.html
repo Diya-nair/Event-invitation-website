@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday Party Invitation</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to right, #ff9a9e, #fecfef);
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+            width: 90%;
+            max-width: 600px;
+            padding: 30px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+        }
+
+        header h1 {
+            font-size: 3rem;
+            color: #ff477e;
+            margin-bottom: 15px;
+        }
+
+        header h2 {
+            font-size: 2rem;
+            color: #ff6ec7;
+            margin-bottom: 25px;
+        }
+
+        .event-details, .rsvp-form {
+            margin-top: 25px;
+        }
+
+        .event-details h3, .rsvp-form h3 {
+            font-size: 1.8rem;
+            color: #ff477e;
+            margin-bottom: 15px;
+        }
+
+        .event-details p {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+            font-size: 1.1rem;
+            color: #333;
+        }
+
+        input[type="text"], input[type="email"], input[type="number"] {
+            width: 100%;
+            padding: 12px;
+            margin-top: 8px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            border: 2px solid #ff6ec7;
+            background: #fdfdfd;
+        }
+
+        button {
+            background: linear-gradient(to right, #ff477e, #ff6ec7);
+            color: white;
+            border: none;
+            padding: 15px;
+            font-size: 1rem;
+            border-radius: 30px;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            background: linear-gradient(to right, #ff6ec7, #ff477e);
+            box-shadow: 0 8px 15px rgba(255, 105, 135, 0.2);
+        }
+
+        #rsvpMessage {
+            margin-top: 25px;
+            font-size: 1.2rem;
+            color: #333;
+        }
+
+        /* Media Query for Mobile */
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 2rem;
+            }
+
+            header h2 {
+                font-size: 1.6rem;
+            }
+
+            button {
+                font-size: 0.9rem;
+                padding: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>You're Invited!</h1>
+            <h2>Diya's 21st Birthday Bash!</h2>
+        </header>
+
+        <section class="event-details">
+            <h3>Party Details</h3>
+            <p><strong>Date:</strong> September 22, 2025</p>
+            <p><strong>Time:</strong> 5:00 PM - 9:00 PM</p>
+            <p><strong>Location:</strong> Radisson Blu Hotel, Nagpur</p>
+            <p>Join us for an unforgettable night filled with laughter, music, and dance. Your presence would mean so much to me!</p>
+        </section>
+
+        <section class="rsvp-form">
+            <h3>RSVP Now</h3>
+            <form id="rsvpForm">
+                <label for="name">Your Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Your Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="guests">Number of Guests:</label>
+                <input type="number" id="guests" name="guests" min="1" required>
+
+                <button type="submit">RSVP</button>
+            </form>
+            <p id="rsvpMessage"></p>
+        </section>
+    </div>
+
+    <script>
+        document.getElementById('rsvpForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const guests = document.getElementById('guests').value;
+
+            if (name && email && guests) {
+                document.getElementById('rsvpMessage').textContent = `Thanks, ${name}! You've RSVP'd for ${guests} guest(s).`;
+                document.getElementById('rsvpForm').reset();
+            } else {
+                document.getElementById('rsvpMessage').textContent = 'Please complete all fields.';
+            }
+        });
+    </script>
+</body>
+</html>
